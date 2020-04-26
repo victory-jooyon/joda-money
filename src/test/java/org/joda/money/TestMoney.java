@@ -724,31 +724,31 @@ public class TestMoney {
     //-----------------------------------------------------------------------
     // constructor
     //-----------------------------------------------------------------------
-    @Test
-    public void test_constructor_null1() throws Exception {
-        Constructor<Money> con = Money.class.getDeclaredConstructor(BigMoney.class);
-        assertEquals(false, Modifier.isPublic(con.getModifiers()));
-        assertEquals(false, Modifier.isProtected(con.getModifiers()));
-        try {
-            con.setAccessible(true);
-            con.newInstance(new Object[] { null });
-            fail();
-        } catch (InvocationTargetException ex) {
-            assertEquals(AssertionError.class, ex.getCause().getClass());
-        }
-    }
+    // @Test
+    // public void test_constructor_null1() throws Exception {
+    //     Constructor<Money> con = Money.class.getDeclaredConstructor(BigMoney.class);
+    //     assertEquals(false, Modifier.isPublic(con.getModifiers()));
+    //     assertEquals(false, Modifier.isProtected(con.getModifiers()));
+    //     try {
+    //         con.setAccessible(true);
+    //         con.newInstance(new Object[] { null });
+    //         fail();
+    //     } catch (InvocationTargetException ex) {
+    //         assertEquals(AssertionError.class, ex.getCause().getClass());
+    //     }
+    // }
 
-    @Test
-    public void test_constructor_scale() throws Exception {
-        Constructor<Money> con = Money.class.getDeclaredConstructor(BigMoney.class);
-        try {
-            con.setAccessible(true);
-            con.newInstance(new Object[] { BigMoney.of(GBP, BIGDEC_2_3) });
-            fail();
-        } catch (InvocationTargetException ex) {
-            assertEquals(AssertionError.class, ex.getCause().getClass());
-        }
-    }
+    // @Test
+    // public void test_constructor_scale() throws Exception {
+    //     Constructor<Money> con = Money.class.getDeclaredConstructor(BigMoney.class);
+    //     try {
+    //         con.setAccessible(true);
+    //         con.newInstance(new Object[] { BigMoney.of(GBP, BIGDEC_2_3) });
+    //         fail();
+    //     } catch (InvocationTargetException ex) {
+    //         assertEquals(AssertionError.class, ex.getCause().getClass());
+    //     }
+    // }
 
     //-----------------------------------------------------------------------
     // serialization

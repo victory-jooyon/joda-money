@@ -783,31 +783,31 @@ public class TestBigMoney {
     //-----------------------------------------------------------------------
     // constructor
     //-----------------------------------------------------------------------
-    @Test
-    public void test_constructor_null1() throws Exception {
-        Constructor<BigMoney> con = BigMoney.class.getDeclaredConstructor(CurrencyUnit.class, BigDecimal.class);
-        assertEquals(false, Modifier.isPublic(con.getModifiers()));
-        assertEquals(false, Modifier.isProtected(con.getModifiers()));
-        try {
-            con.setAccessible(true);
-            con.newInstance(new Object[] { null, BIGDEC_2_34 });
-            fail();
-        } catch (InvocationTargetException ex) {
-            assertEquals(AssertionError.class, ex.getCause().getClass());
-        }
-    }
+    // @Test
+    // public void test_constructor_null1() throws Exception {
+    //     Constructor<BigMoney> con = BigMoney.class.getDeclaredConstructor(CurrencyUnit.class, BigDecimal.class);
+    //     assertEquals(false, Modifier.isPublic(con.getModifiers()));
+    //     assertEquals(false, Modifier.isProtected(con.getModifiers()));
+    //     try {
+    //         con.setAccessible(true);
+    //         con.newInstance(new Object[] { null, BIGDEC_2_34 });
+    //         fail();
+    //     } catch (InvocationTargetException ex) {
+    //         assertEquals(AssertionError.class, ex.getCause().getClass());
+    //     }
+    // }
 
-    @Test
-    public void test_constructor_null2() throws Exception {
-        Constructor<BigMoney> con = BigMoney.class.getDeclaredConstructor(CurrencyUnit.class, BigDecimal.class);
-        try {
-            con.setAccessible(true);
-            con.newInstance(new Object[] { GBP, null });
-            fail();
-        } catch (InvocationTargetException ex) {
-            assertEquals(AssertionError.class, ex.getCause().getClass());
-        }
-    }
+    // @Test
+    // public void test_constructor_null2() throws Exception {
+    //     Constructor<BigMoney> con = BigMoney.class.getDeclaredConstructor(CurrencyUnit.class, BigDecimal.class);
+    //     try {
+    //         con.setAccessible(true);
+    //         con.newInstance(new Object[] { GBP, null });
+    //         fail();
+    //     } catch (InvocationTargetException ex) {
+    //         assertEquals(AssertionError.class, ex.getCause().getClass());
+    //     }
+    // }
 
     //-----------------------------------------------------------------------
     @Test

@@ -208,10 +208,10 @@ public class TestCurrencyUnit {
     //-----------------------------------------------------------------------
     // constructor assert
     //-----------------------------------------------------------------------
-    @Test(expected = AssertionError.class)
-    public void test_constructor_nullCode() {
-        new CurrencyUnit(null, (short) 1, (short) 2);
-    }
+    // @Test(expected = AssertionError.class)
+    // public void test_constructor_nullCode() {
+    //     new CurrencyUnit(null, (short) 1, (short) 2);
+    // }
 
     //-----------------------------------------------------------------------
     // of(Currency)
