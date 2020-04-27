@@ -22,6 +22,7 @@ import static org.junit.Assert.assertTrue;
 import java.math.BigDecimal;
 import java.util.Locale;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.joda.money.BigMoney;
 import org.joda.money.CurrencyUnit;
 import org.junit.After;
@@ -52,6 +53,14 @@ public class TestMoneyAmountStyle {
     //-----------------------------------------------------------------------
     // Constants
     //-----------------------------------------------------------------------
+    @Test
+    public void test_equal() {
+        MoneyAmountStyle actual = MoneyAmountStyle.ASCII_DECIMAL_POINT_GROUP3_COMMA;
+        MoneyAmountStyle expected = new MoneyAmountStyle('0', '+', '-', '.', GroupingStyle.FULL, ',', 3, 0, false, false);
+        assertTrue(EqualsBuilder.reflectionEquals(actual.hashCode(), expected.hashCode()));
+        assertTrue(EqualsBuilder.reflectionEquals(actual.hashCode(), expected.hashCodeClone()));
+    }
+    
     @Test
     public void test_ASCII_DECIMAL_POINT_GROUP3_COMMA() {
         MoneyAmountStyle style = MoneyAmountStyle.ASCII_DECIMAL_POINT_GROUP3_COMMA;

@@ -182,7 +182,7 @@ public final class MoneyAmountStyle implements Serializable {
      * @param forceDecimalPoint  whether to always use the decimal point character
      * @param absValue  true to output the absolute value rather than the signed value
      */
-    private MoneyAmountStyle(
+    protected MoneyAmountStyle(
                 int zeroCharacter,
                 int positiveCharacter, int negativeCharacter,
                 int decimalPointCharacter, GroupingStyle groupingStyle,
@@ -643,6 +643,20 @@ public final class MoneyAmountStyle implements Serializable {
      */
     @Override
     public int hashCode() {
+        int hash = 13;
+        hash += zeroCharacter * 17;
+        hash += positiveCharacter * 17;
+        hash += negativeCharacter * 17;
+        hash += decimalPointCharacter * 17;
+        hash += groupingStyle.hashCode() * 17;
+        hash += groupingCharacter * 17;
+        hash += groupingSize * 17;
+        hash += (forceDecimalPoint ? 2 : 4);
+        hash += (absValue ? 3 : 9);
+        return hash;
+    }
+
+    public int hashCodeClone() {
         int hash = 13;
         hash += zeroCharacter * 17;
         hash += positiveCharacter * 17;
